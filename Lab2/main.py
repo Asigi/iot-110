@@ -4,10 +4,6 @@ from flask import *
 app = Flask(__name__)
 pi_gpio = PiGpio()
 
-... add APIs <here>
-
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)
 
 
 @app.route("/")
@@ -29,6 +25,7 @@ def index():
 # read the LED status by GET method from curl for example
 # curl http://iot8e3c:5000/led/1
 # curl http://iot8e3c:5000/led/2
+# curl http://iot8e3c:5000/led/3
 # -----------------------------------------------------------------------------
 @app.route("/leds/<int:led_state>", methods=['GET'])
 def leds(led_state):
@@ -63,3 +60,11 @@ def ledcommand():
     return "Led State Command:" + state + " for LED number:"+ str(led) + "\n"
     # -----------------------------------------------------------------------------
 # ============================== API Routes ===================================
+
+
+
+
+
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', debug=True)
